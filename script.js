@@ -14,18 +14,25 @@ function showSlide(i){
 slides.forEach(slide=>{
 slide.classList.remove("active");
 });
+
+if(slides[i]){
 slides[i].classList.add("active");
+}
 }
 
 /* NEXT BUTTON */
 
 if(nextBtn){
 nextBtn.addEventListener("click", ()=>{
+
 index++;
+
 if(index >= slides.length){
 index = 0;
 }
+
 showSlide(index);
+
 });
 }
 
@@ -33,24 +40,35 @@ showSlide(index);
 
 if(prevBtn){
 prevBtn.addEventListener("click", ()=>{
+
 index--;
+
 if(index < 0){
 index = slides.length - 1;
 }
+
 showSlide(index);
+
 });
 }
 
 /* AUTO SLIDER */
 
+if(slides.length > 0){
+
 setInterval(()=>{
+
 index++;
+
 if(index >= slides.length){
 index = 0;
 }
+
 showSlide(index);
+
 },5000);
 
+}
 
 /* =========================
 SCROLL REVEAL ANIMATION
@@ -122,7 +140,9 @@ plot.style.transform =
 });
 
 plot.addEventListener("mouseleave",()=>{
+
 plot.style.transform="rotateX(20deg) rotateY(0deg)";
+
 });
 
 });
@@ -138,8 +158,10 @@ let lightbox = document.getElementById("lightbox");
 let lightboxImg = document.getElementById("lightbox-img");
 
 if(lightbox && lightboxImg){
+
 lightbox.style.display = "flex";
 lightboxImg.src = img.src;
+
 }
 
 }
@@ -154,7 +176,7 @@ lightbox.style.display = "none";
 
 }
 
-/* CLOSE LIGHTBOX ON OUTSIDE CLICK */
+/* CLOSE LIGHTBOX OUTSIDE CLICK */
 
 let lightbox = document.getElementById("lightbox");
 
@@ -182,8 +204,10 @@ if(menuToggle && nav){
 
 // menu open close
 menuToggle.addEventListener("click", (e) => {
+
 nav.classList.toggle("show");
 e.stopPropagation();
+
 });
 
 // outside click hide
@@ -197,9 +221,49 @@ nav.classList.remove("show");
 
 // menu link click hide
 document.querySelectorAll("nav a").forEach(link => {
+
 link.addEventListener("click", () => {
+
 nav.classList.remove("show");
+
 });
+
 });
 
 }
+
+
+/* =========================
+FAQ TOGGLE
+========================= */
+
+const faqQuestions = document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach(question => {
+
+question.addEventListener("click", () => {
+
+const answer = question.nextElementSibling;
+
+answer.classList.toggle("show");
+
+});
+
+});
+
+/* =========================
+HEADER SCROLL EFFECT
+========================= */
+
+window.addEventListener("scroll",function(){
+
+let header = document.querySelector("header");
+
+if(window.scrollY > 50){
+header.classList.add("scrolled");
+}
+else{
+header.classList.remove("scrolled");
+}
+
+});

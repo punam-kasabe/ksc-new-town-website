@@ -1,71 +1,112 @@
 /* =========================
-RESET
+RESET / GLOBAL
 ========================= */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:'Poppins', Arial, Helvetica, sans-serif;
 }
 
 body{
-font-family:'Poppins',sans-serif;
 line-height:1.6;
 color:#333;
+background:#fff;
 }
 
 img{
 max-width:100%;
 display:block;
 }
-
+.logo img{
+  height: 50px;  /* website header height नुसार adjust कर */
+  width: auto;
+  display: block;
+}
 a{
 text-decoration:none;
 color:inherit;
+}
+
+section{
+padding:70px 6%;
+}
+
+h1{
+font-size:42px;
+}
+
+h2{
+font-size:34px;
+margin-bottom:35px;
+color:#29b6f6;
+text-align:center;
+}
+
+h3{
+margin-bottom:10px;
 }
 
 /* =========================
 HEADER
 ========================= */
 
+/* =========================
+STICKY HEADER
+========================= */
+
 header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 5%;
-background:#fff;
-position:sticky;
-top:0;
-z-index:1000;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+background: #fff;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 60px;
+z-index: 1000;
+transition: 0.3s;
 }
+
+/* shadow on scroll */
+
+header.scrolled{
+box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* logo */
 
 .logo{
-font-size:24px;
-font-weight:bold;
-color:#29b6f6;
+font-size: 22px;
+font-weight: bold;
+color: #222;
 }
 
-/* menu icon */
+/* nav */
+
+.nav-menu{
+display: flex;
+gap: 25px;
+}
+
+.nav-menu a{
+text-decoration: none;
+color: #333;
+font-weight: 500;
+transition: 0.3s;
+}
+
+.nav-menu a:hover{
+color: #ff6600;
+}
+/* MENU ICON */
 
 .menu-toggle{
 display:none;
-}
-
-/* desktop menu */
-
-nav{
-display:flex;
-gap:20px;
-}
-
-nav a{
-padding:8px 10px;
-transition:0.3s;
-}
-
-nav a:hover{
-color:#29b6f6;
+font-size:28px;
+cursor:pointer;
 }
 
 /* =========================
@@ -73,9 +114,10 @@ HERO SLIDER
 ========================= */
 
 .hero-slider{
+margin-top:80px;
 position:relative;
 width:100%;
-height:100vh;
+height:90vh;
 overflow:hidden;
 }
 
@@ -105,7 +147,7 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-background:rgba(0,0,0,0.5);
+background:rgba(0,0,0,0.55);
 color:#fff;
 padding:30px 40px;
 border-radius:10px;
@@ -114,7 +156,7 @@ max-width:90%;
 }
 
 .hero-content h1{
-font-size:48px;
+font-size:44px;
 margin-bottom:10px;
 }
 
@@ -131,7 +173,7 @@ display:inline-block;
 margin-top:15px;
 }
 
-/* slider arrows */
+/* SLIDER ARROWS */
 
 .prev,
 .next{
@@ -152,22 +194,18 @@ z-index:10;
 .next{right:20px;}
 
 /* =========================
-SECTION
+ABOUT
 ========================= */
 
-section{
-padding:70px 5%;
-}
-
-h2{
-font-size:32px;
-margin-bottom:25px;
-color:#29b6f6;
+.about p{
+max-width:900px;
+margin:auto;
+margin-bottom:20px;
 text-align:center;
 }
 
 /* =========================
-KSC SECTION
+KSC INFO
 ========================= */
 
 .ksc-container{
@@ -193,29 +231,103 @@ GRID
 
 .highlight-grid,
 .property-grid,
-.amenity-grid{
+.amenity-grid,
+.investment-grid{
 display:grid;
-gap:20px;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 margin-top:30px;
 text-align:center;
 }
+/* ================= CONNECTIVITY SECTION ================= */
 
+.connectivity{
+text-align:center;
+}
+
+.connectivity h2{
+font-size:32px;
+margin-bottom:10px;
+color:#222;
+}
+
+.connectivity p{
+color:#555;
+}
+
+/* grid layout */
+
+.connectivity-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+/* card */
+
+.connectivity-card{
+background:#fff;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+overflow:hidden;
+transition:0.3s;
+}
+
+.connectivity-card:hover{
+transform:translateY(-6px);
+}
+
+/* image size same */
+
+.connectivity-card img{
+width:100%;
+height:200px;   /* sarva images same height */
+object-fit:cover;   /* image perfect fit */
+display:block;
+}
+
+/* text */
+
+.connectivity-card h3{
+font-size:20px;
+margin:15px 10px 5px;
+color:#222;
+}
+
+.connectivity-card p{
+font-size:16px;
+margin-bottom:15px;
+color:#666;
+}
 /* =========================
 PROPERTY
 ========================= */
 
 .property-card{
-border:1px solid #ddd;
 border-radius:12px;
 overflow:hidden;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+background:#fff;
+transition:.3s;
+}
+
+.property-card:hover{
+transform:translateY(-6px);
 }
 
 .property-card img{
 width:100%;
 height:200px;
 object-fit:cover;
+}
+
+.property-card h3{
+padding:15px;
+}
+
+.property-card p{
+padding:0 15px 15px;
 }
 
 /* =========================
@@ -228,13 +340,18 @@ grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:15px;
 }
 
+.gallery-grid img{
+border-radius:8px;
+cursor:pointer;
+}
+
 #lightbox{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,0.9);
 display:none;
 align-items:center;
 justify-content:center;
@@ -259,10 +376,160 @@ cursor:pointer;
 VIDEO
 ========================= */
 
-.video-grid{
+/* =========================
+HERO VIDEO SECTION
+========================= */
+
+.hero-video-section{
+position: relative;
+width: 100%;
+height: 400px;   /* height kami keli */
+overflow: hidden;
+}
+
+/* video full section fill */
+
+.hero-video-section video{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;   /* screen la perfect fit */
+}
+
+/* overlay content */
+
+.video-overlay{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+text-align: center;
+color: white;
+z-index: 2;
+}
+
+.video-overlay h1{
+font-size: 40px;
+margin-bottom: 10px;
+}
+
+.video-overlay p{
+font-size: 18px;
+margin-bottom: 20px;
+}
+
+.hero-btn{
+background: #ff6600;
+color: white;
+padding: 12px 25px;
+text-decoration: none;
+border-radius: 5px;
+}
+
+/* =========================
+LOCATION
+========================= */
+
+.location-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
+}
+
+.location-card{
+background:#f5f5f5;
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
+
+/* =========================
+TESTIMONIALS
+========================= */
+
+.testimonials{
+background:linear-gradient(135deg,#aaddff,#9ddbff);
+padding:90px 8%;
+text-align:center;
+overflow:hidden;
+}
+
+.testimonial-slider{
+overflow:hidden;
+}
+
+.testimonial-track{
+display:flex;
+gap:30px;
+animation:scrollTestimonial 20s linear infinite;
+}
+
+.testimonial-card{
+min-width:300px;
+padding:30px;
+background:rgba(255,255,255,0.3);
+backdrop-filter:blur(10px);
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+transition:.4s;
+}
+
+.testimonial-card:hover{
+transform:translateY(-8px);
+}
+
+@keyframes scrollTestimonial{
+
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+
+}
+
+/* =========================
+FAQ
+========================= */
+
+.faq-item{
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:5px;
+}
+
+.faq-question{
+width:100%;
+padding:15px;
+background:#f5f5f5;
+border:none;
+text-align:left;
+cursor:pointer;
+font-size:16px;
+}
+
+.faq-answer{
+display:none;
+padding:15px;
+}
+
+/* =========================
+CTA
+========================= */
+
+.cta{
+background:#29b6f6;
+color:#fff;
+text-align:center;
+padding:80px 20px;
+}
+
+.cta-btn{
+display:inline-block;
+margin-top:20px;
+background:#fff;
+color:#29b6f6;
+padding:12px 25px;
+border-radius:5px;
 }
 
 /* =========================
@@ -271,13 +538,7 @@ CONTACT
 
 .contact{
 background:#f5f7fb;
-padding:70px 20px;
 text-align:center;
-}
-
-.contact h2{
-font-size:34px;
-margin-bottom:30px;
 }
 
 .contact form{
@@ -293,40 +554,98 @@ padding:12px;
 border:1px solid #ccc;
 border-radius:6px;
 font-size:16px;
-outline:none;
-}
-
-.contact input:focus{
-border-color:#007bff;
 }
 
 .contact button{
-background:#007bff;
+background:#29b6f6;
 color:#fff;
 border:none;
 padding:12px;
 font-size:16px;
 border-radius:6px;
 cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+background:#111;
+color:#fff;
+padding:50px 8% 20px;
+}
+
+.footer-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
+}
+
+.footer-col h3{
+font-size:22px;
+margin-bottom:15px;
+}
+
+.footer-col h4{
+font-size:18px;
+margin-bottom:15px;
+}
+
+.footer-col p{
+color:#ccc;
+font-size:14px;
+margin-bottom:10px;
+}
+
+.footer-col ul{
+list-style:none;
+padding:0;
+}
+
+.footer-col ul li{
+margin-bottom:10px;
+}
+
+.footer-col ul li a{
+text-decoration:none;
+color:#ccc;
 transition:0.3s;
 }
 
-.contact button:hover{
-background:#0056b3;
+.footer-col ul li a:hover{
+color:#ff6600;
 }
 
-/* =========================
-FOOTER
-========================= */
+/* Social Icons */
 
-footer{
-background:#111;
-color:#fff;
+.social-icons{
+margin-top:15px;
+}
+
+.social-icons a{
+display:inline-block;
+margin-right:10px;
+}
+
+.social-icons img{
+width:35px;
+height:35px;
+transition:0.3s;
+}
+
+.social-icons img:hover{
+transform:scale(1.15);
+}
+
+/* Footer Bottom */
+
+.footer-bottom{
 text-align:center;
-padding:20px;
+border-top:1px solid rgba(255,255,255,0.1);
+margin-top:30px;
+padding-top:15px;
 font-size:14px;
+color:#aaa;
 }
-
 /* =========================
 FLOATING BUTTONS
 ========================= */
@@ -336,7 +655,7 @@ position:fixed;
 bottom:20px;
 right:20px;
 background:#25D366;
-color:white;
+color:#fff;
 padding:12px 18px;
 border-radius:30px;
 font-weight:bold;
@@ -348,13 +667,28 @@ z-index:1000;
 position:fixed;
 bottom:20px;
 left:20px;
-background:#007bff;
-color:white;
+background:#29b6f6;
+color:#fff;
 padding:12px 18px;
 border-radius:30px;
 font-weight:bold;
 box-shadow:0 4px 10px rgba(0,0,0,0.2);
 z-index:1000;
+}
+
+/* =========================
+SCROLL ANIMATION
+========================= */
+
+.reveal{
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
 }
 
 /* =========================
@@ -364,11 +698,7 @@ RESPONSIVE
 @media(max-width:1024px){
 
 .hero-content h1{
-font-size:34px;
-}
-
-.hero-content p{
-font-size:18px;
+font-size:32px;
 }
 
 .ksc-container{
@@ -389,11 +719,7 @@ MOBILE
 
 .menu-toggle{
 display:block;
-font-size:28px;
-cursor:pointer;
 }
-
-/* mobile nav */
 
 nav{
 position:absolute;
@@ -406,13 +732,13 @@ display:none;
 box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
+nav.show{
+display:flex;
+}
+
 nav a{
 padding:12px;
 border-bottom:1px solid #eee;
-}
-
-nav.show{
-display:flex;
 }
 
 .hero-slider{
@@ -437,21 +763,11 @@ font-size:15px;
 grid-template-columns:1fr;
 }
 
-.whatsapp{
-bottom:15px;
-right:15px;
-padding:10px 15px;
-font-size:14px;
 }
 
-.call-btn{
-bottom:15px;
-left:15px;
-padding:10px 15px;
-font-size:14px;
-}
-
-}
+/* =========================
+SMALL MOBILE
+========================= */
 
 @media(max-width:480px){
 
@@ -469,3 +785,4 @@ grid-template-columns:1fr;
 }
 
 }
+
